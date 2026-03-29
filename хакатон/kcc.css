@@ -1,9 +1,42 @@
-        body {
+        body 
+        {
             background: #0f2a0f;
             font-family: 'Segoe UI', 'Times New Roman', serif;
             text-align: center;
             padding: 20px;
             min-height: 100vh;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            max-width: 600px;
+            text-align: center;
+        }
+        table, th, td {
+        border: 3px solid rgb(255, 255, 255); 
+        }
+        th, td {
+            padding: 10px;
+            text-align: left; 
+            color: #ffffff
+        }
+        h6
+        {
+            margin-left: -600px;
+            color: #ffffff;
+            text-shadow: 2px 2px 0 #a0a0a0;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+        }
+        h5
+        {
+            margin-top: -100px;
+            margin-left: 1200px;
+            color: #ffffff;
+            text-shadow: 2px 2px 0 #a0a0a0;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
         h4
         {
