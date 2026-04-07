@@ -535,6 +535,9 @@ body
 <div style="position: fixed; top: 20px; right: 20px; background: #1d313b; border-radius: 20px; padding: 15px 25px; border: 2px solid #ffcc66; box-shadow: 0 0 15px rgba(0,0,0,0.5); z-index: 1000; backdrop-filter: blur(5px);">
     <div style="color: #ffdd99; font-size: 0.9rem; text-align: center;">ЧАСТИЦ ПЛАСТИКА</div>
     <div id="counterDigits" style="display: flex; justify-content: center; gap: 5px; font-family: monospace; font-size: 2.5rem; font-weight: bold; color: #ffcc66;">
+        <!-- 7 цифр -->
+        <span class="digit">0</span>
+        <span class="digit">0</span>
         <span class="digit">0</span>
         <span class="digit">0</span>
         <span class="digit">0</span>
@@ -822,107 +825,15 @@ body
     { name: "Батарейка АА", story: "Выброшена в лесополосе вдоль реки Мезень. Тяжёлые металлы мигрировали в грунтовые воды, затем в реку", decompose: "100 лет (корпус), токсичные металлы остаются навсегда", img: "https://cdn-icons-png.flaticon.com/128/2333/2333603.png" },
     { name: "Рыболовный ящик", story: "--", decompose: "400 лет", img: "https://cdn-icons-png.flaticon.com/128/2979/2979705.png" }
 ];
-    let foundTreasures = [];
-    let particleCount = 0;
-    let particleAccumulator = 0;
-    let digits = document.querySelectorAll('.digit');
+let foundTreasures = [];
+let particleCount = 0;
+let particleAccumulator = 0;
 
-    function updateDigit(index, newDigit) {
-    let digitElement = digits[index];
-    let oldSpan = digitElement.querySelector('span');
-    let oldValue = oldSpan ? oldSpan.textContent : digitElement.textContent;
-    
-    if (oldValue === String(newDigit)) return;
-    
-    let oldDigitSpan = document.createElement('span');
-    oldDigitSpan.textContent = oldValue;
-    oldDigitSpan.className = 'digit-old';
-    oldDigitSpan.style.position = 'absolute';
-    oldDigitSpan.style.top = '0';
-    oldDigitSpan.style.left = '0';
-    oldDigitSpan.style.right = '0';
-    oldDigitSpan.style.textAlign = 'center';
-    
-    let newDigitSpan = document.createElement('span');
-    newDigitSpan.textContent = newDigit;
-    newDigitSpan.className = 'digit-new';
-    newDigitSpan.style.position = 'absolute';
-    newDigitSpan.style.top = '0';
-    newDigitSpan.style.left = '0';
-    newDigitSpan.style.right = '0';
-    newDigitSpan.style.textAlign = 'center';
-    
-    digitElement.innerHTML = '';
-    digitElement.style.position = 'relative';
-    digitElement.appendChild(oldDigitSpan);
-    digitElement.appendChild(newDigitSpan);
-    
-    setTimeout(() => {
-        if (oldDigitSpan && oldDigitSpan.parentNode) {
-            oldDigitSpan.remove();
-        }
-        digitElement.innerHTML = newDigit;
-    }, 200);
-}
-document.addEventListener('click', (e) => {
-    const svg = document.querySelector('svg');
-    const pt = svg.createSVGPoint();
-    pt.x = e.clientX;
-    pt.y = e.clientY;
-    const cursor = pt.matrixTransform(svg.getScreenCTM().inverse());
-    console.log(`${Math.round(cursor.x)},${Math.round(cursor.y)}`);
-});
-function showMessage(msg, color) {
-    let msgDiv = document.getElementById('dragMessage');
-    if (!msgDiv) {
-        msgDiv = document.createElement('div');
-        msgDiv.id = 'dragMessage';
-        msgDiv.style.position = 'fixed';
-        msgDiv.style.bottom = '20px';
-        msgDiv.style.left = '50%';
-        msgDiv.style.transform = 'translateX(-50%)';
-        msgDiv.style.padding = '12px 24px';
-        msgDiv.style.borderRadius = '30px';
-        msgDiv.style.zIndex = '9999';
-        msgDiv.style.fontWeight = 'bold';
-        msgDiv.style.transition = '0.3s';
-        document.body.appendChild(msgDiv);
-    }
-    msgDiv.style.backgroundColor = color;
-    msgDiv.style.color = '#1a2a1f';
-    msgDiv.textContent = msg;
-    msgDiv.style.display = 'block';
-    setTimeout(() => { msgDiv.style.display = 'none'; }, 1500);
-}
-function updateCounter(value) {
-    let str = String(Math.floor(value)).padStart(5, '0');
-    for (let i = 0; i < str.length; i++) {
-        let newDigit = str[i];
-        let currentDigit = digits[i].textContent;
-        if (currentDigit !== newDigit) {
-            updateDigit(i, newDigit);
-        }
-    }
-}
+const digits = document.querySelectorAll('#counterDigits .digit');
 
-function tick() {
-    particleAccumulator += 1.6666667;
-    if (particleAccumulator >= 1) {
-        let add = Math.floor(particleAccumulator);
-        particleCount += add;
-        particleAccumulator -= add;
-        updateCounter(particleCount);
-    }
-}
-setInterval(tick, 2000);
-    function addToMuseum(name) 
-    {   
+function addToMuseum(name) {
     let container = document.getElementById('museumCards');
-    if (!container) 
-    {
-        console.log('Контейнер museumCards не найден');
-        return;
-    }
+    if (!container) return;
     
     let existing = container.querySelector(`[data-name="${name}"]`);
     if (existing) return;
@@ -948,8 +859,98 @@ setInterval(tick, 2000);
         <p style="color: #ffdd99; font-size: 0.9rem;">Разложение: ${item.decompose}</p>
     `;
     container.appendChild(card);
-    console.log('Добавлено в музей:', name);
 }
+function updateDigit(index, newDigit) {
+    const digitElement = digits[index];
+    if (!digitElement) return;
+    
+    const oldValue = digitElement.textContent;
+    if (oldValue === String(newDigit)) return;
+    
+    digitElement.style.position = 'relative';
+    digitElement.style.overflow = 'hidden';
+    
+    const oldSpan = document.createElement('span');
+    oldSpan.textContent = oldValue;
+    oldSpan.style.position = 'absolute';
+    oldSpan.style.top = '0';
+    oldSpan.style.left = '0';
+    oldSpan.style.right = '0';
+    oldSpan.style.textAlign = 'center';
+    oldSpan.style.transform = 'translateY(0)';
+    oldSpan.style.opacity = '1';
+    oldSpan.style.transition = 'transform 0.15s ease-out, opacity 0.15s ease-out';
+    
+    const newSpan = document.createElement('span');
+    newSpan.textContent = newDigit;
+    newSpan.style.position = 'absolute';
+    newSpan.style.top = '0';
+    newSpan.style.left = '0';
+    newSpan.style.right = '0';
+    newSpan.style.textAlign = 'center';
+    newSpan.style.transform = 'translateY(-100%)';
+    newSpan.style.opacity = '0';
+    newSpan.style.transition = 'transform 0.15s ease-out, opacity 0.15s ease-out';
+    
+    digitElement.innerHTML = '';
+    digitElement.appendChild(oldSpan);
+    digitElement.appendChild(newSpan);
+    
+    setTimeout(() => {
+        oldSpan.style.transform = 'translateY(100%)';
+        oldSpan.style.opacity = '0';
+        newSpan.style.transform = 'translateY(0)';
+        newSpan.style.opacity = '1';
+    }, 10);
+    
+    setTimeout(() => {
+        if (digitElement.firstChild === oldSpan) {
+            digitElement.innerHTML = newDigit;
+        }
+    }, 200);
+}
+
+function updateCounter(value) {
+    const str = String(Math.floor(value)).padStart(7, '0');
+    for (let i = 0; i < str.length; i++) {
+        const newDigit = str[i];
+        const currentDigit = digits[i]?.textContent;
+        if (currentDigit !== newDigit) {
+            updateDigit(i, newDigit);
+        }
+    }
+}
+
+function tick() {
+    particleAccumulator += 7674;
+    if (particleAccumulator >= 1) {
+        const add = Math.floor(particleAccumulator);
+        particleCount += add;
+        particleAccumulator -= add;
+        updateCounter(particleCount);
+    }
+}
+
+setInterval(tick, 1000);
+updateCounter(0);
+    
+    let item = museumContainer.find(i => 
+        i.name.toLowerCase().includes(name.toLowerCase()) || 
+        name.toLowerCase().includes(i.name.toLowerCase())
+    );
+    
+    let card = document.createElement('div');
+    card.setAttribute('data-name', name);
+    card.className = 'exhibit-card';
+    card.style.width = '200px';
+    card.innerHTML = `
+        <img src="${item.img}" style="width: 80px; height: 80px;">
+        <h4 style="color: #ffcc66; margin: 10px 0 5px;">${item.name}</h4>
+        <p style="color: #ffdd99; font-size: 0.9rem;">${item.story}</p>
+        <p style="color: #ffdd99; font-size: 0.9rem;">Разложение: ${item.decompose}</p>
+    `;
+    container.appendChild(card);
+    console.log('Добавлено в музей:', name);
     function openTreasure(name, imageUrl) 
     {
         document.getElementById('modalImage').src = imageUrl;
