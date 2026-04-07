@@ -1,6 +1,6 @@
-        body 
+body 
         {
-            background: #0f2a0f;
+            background: #a8ebff;
             font-family: 'Segoe UI', 'Times New Roman', serif;
             text-align: center;
             padding: 20px;
@@ -19,54 +19,39 @@
         th, td {
             padding: 10px;
             text-align: left; 
-            color: #ffffff
+            color:#264cb4;
         }
         h6
         {
             margin-left: -600px;
-            color: #ffffff;
-            text-shadow: 2px 2px 0 #a0a0a0;
+            color: #264cb4;
             font-size: 1.6rem;
-            letter-spacing: 2px;
-        }
-        h5
-        {
-            margin-top: -100px;
-            margin-left: 1200px;
-            color: #ffffff;
-            text-shadow: 2px 2px 0 #a0a0a0;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
             letter-spacing: 2px;
         }
         h4
         {
-            color: #ffffff;
-            text-shadow: 2px 2px 0 #a0a0a0;
+            color: #264cb4;
             font-size: 1.6rem;
             margin-bottom: 15px;
             letter-spacing: 2px;
         }
         h3
         {
-            color: #ffffff;
-            text-shadow: 2px 2px 0 #a0a0a0;
+            color: #264cb4;
             font-size: 4rem;
             margin-bottom: 15px;
             letter-spacing: 2px;
         }
         h2 
         {
-            color: #ffcc66;
-            text-shadow: 3px 3px 0 #5a3e1a;
+            color: #264cb4;
             font-size: 5rem;
             margin-bottom: 15px;
             letter-spacing: 2px;
         }
         h1 
         {
-            color: #ffcc66;
-            text-shadow: 3px 3px 0 #5a3e1a;
+            color: #264cb4;
             font-size: 2.5rem;
             margin-bottom: 15px;
             letter-spacing: 2px;
@@ -325,70 +310,6 @@
             text-align: center;
             margin-bottom: 25px;
             font-style: italic;
-        }
-        .tooltip {
-            position: absolute;
-            background: #0f2a1f;
-            color: #ffdd99;
-            padding: 12px 18px;
-            border-radius: 16px;
-            border-left: 5px solid #ffaa44;
-            max-width: 280px;
-            font-size: 0.85rem;
-            z-index: 200;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            pointer-events: none;
-            transition: opacity 0.2s;
-            backdrop-filter: blur(4px);
-        }
-        .tooltip strong {
-            color: #ffcc66;
-        }
-        .stats-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 25px;
-            text-align: center;
-        }
-        .stat-card {
-            background: #162b25;
-            padding: 12px 20px;
-            border-radius: 40px;
-            border: 1px solid #2f6a5c;
-            min-width: 180px;
-        }
-        .stat-card h4 {
-            color: #ffcc66;
-            margin-bottom: 5px;
-        }
-        .stat-card p {
-            color: #ffdd99;
-            font-size: 0.9rem;
-        }
-        .legend {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #cfe2cf;
-        }
-        .legend span {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); opacity: 0.7; }
-            100% { transform: translateY(-8px); opacity: 1; }
-        }
-        .particle {
-            animation: float 1.5s ease-in-out infinite alternate;
-        }
         .drag-item {
     background: #162b25;
     border-radius: 16px;
@@ -400,6 +321,7 @@
     transition: 0.1s linear;
     user-select: none;
 }
+        }
 .drag-item:active {
     cursor: grabbing;
 }
@@ -498,15 +420,22 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
-    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
     max-width: 100%;
+    overflow-x: visible;
 }
+
 .exhibit-card {
     width: 220px;
     flex-shrink: 0;
 }
+
+#museumCards::-webkit-scrollbar {
+    height: 8px;
+}
+
 #museumCards::-webkit-scrollbar-track {
     background: #1d313b;
     border-radius: 10px;
@@ -515,4 +444,70 @@
 #museumCards::-webkit-scrollbar-thumb {
     background: #ffcc66;
     border-radius: 10px;
+}
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            background: rgba(212, 236, 245, 0.95);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem 2rem;
+            z-index: 100;
+            border-bottom: 1px solid rgba(10, 59, 92, 0.2);
+        }
+
+        .nav-bar a {
+            color: #0a3b5c;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-bar a:hover {
+            border-bottom-color: #0f6b9c;
+            transform: translateY(-2px);
+        }
+.media-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 12px solid #ffffff;
+    border-radius: 20px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.media-img {
+    flex: 0.8;
+    width: 4000px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.media-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+
+.media-text {
+    flex: 1.2;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.media-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #264cb4;
 }

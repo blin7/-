@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="kcc.css">
 </head>
 <body>
-    <img src="foto/foto1.jpg" style="width: 1200px; align-self: center; height: auto; padding-top: 100px;">
+        <div class="nav-bar">
+        <a href="#home">Белое море</a>
+        <a href="#video">Движение мусора</a>
+        <a href="#microplastics">Цикл микропластика</a>
+        <a href="#garbage-layer">Слой мусора в воде</a>
+        <a href="#plahs">Пляж с мусором</a>
+        <a href="#museumContainer">Музей мусора</a>
+    </div>
+    <h1 id = "home" >Белое море: жизнь среди мусора</h1>
+    <h4>Каждый час — сотни частиц пластика. Счётчик сверху — реальность.</h4>
+    <img src="foto/foto1.jpg" style="width: 1200px; align-self: center; height: auto; padding-top: 100px; border: 10px;">
 <div style="position: fixed; top: 20px; right: 20px; background: #1d313b; border-radius: 20px; padding: 15px 25px; border: 2px solid #ffcc66; box-shadow: 0 0 15px rgba(0,0,0,0.5); z-index: 1000; backdrop-filter: blur(5px);">
-    <div style="color: #ffdd99; font-size: 0.9rem; text-align: center;"> ЧАСТИЦ МИКРОПЛАСТИКА</div>
+    <div style="color: #ffdd99; font-size: 0.9rem; text-align: center;">ЧАСТИЦ ПЛАСТИКА</div>
     <div id="counterDigits" style="display: flex; justify-content: center; gap: 5px; font-family: monospace; font-size: 2.5rem; font-weight: bold; color: #ffcc66;">
         <span class="digit">0</span>
         <span class="digit">0</span>
@@ -17,7 +27,7 @@
         <span class="digit">0</span>
         <span class="digit">0</span>
     </div>
-    <div style="color: #ffdd99; font-size: 0.8rem; text-align: center;">сколько выбрасывается мусора в белое море</div>
+    <div style="color: #ffdd99; font-size: 0.8rem; text-align: center;">сколько выбрасывается мусора в Белое море</div>
 </div>
 <div class="map-card">
     <h3 class="map-title"> Путь мусора в Белое море</h3>
@@ -25,7 +35,7 @@
     
 <div id="mapTooltipParent" class="map-wrapper" style="position: relative; width: 100%;">
     <!-- фон -->
-    <img src="https://avatars.mds.yandex.net/i?id=413f9390f53e6e68aa2781e2c800d659d8fbe885-4577399-images-thumbs&n=13" 
+    <img src="foto/foto3.jpg" 
          style="width: 100%; display: block; border-radius: 12px;">
     
     <svg viewBox="0 0 800 550" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -97,7 +107,7 @@
         <!-- подписи рек -->
         <text x="503" y="475" font-size="10" fill="#1d5e4a">Северная Двина</text>
         <text x="374" y="539" font-size="9" fill="#1d5e4a">Онега</text>
-        <text x="380" y="470" font-size="9" fill="#1d5e4a">Мезень</text>
+        <text x="651" y="333" font-size="9" fill="#1d5e4a">Мезень</text>
         <text x="153" y="408" font-size="9" fill="#1d5e4a">Кемь</text>
         <text x="193" y="472" font-size="9" fill="#1d5e4a">Выг</text>
     </svg>
@@ -131,9 +141,44 @@
          <strong>Главные реки-транспортировщики:</strong> Северная Двина и Онега<br>
          <strong>Главный тип мусора:</strong> Пластик - 59,6% от всего антропогенного мусора
     </p>
-    <p style="color: #8fc5b0; font-size: 0.8rem;">Данные за период с мая по ноябрь 2021 года (МФТИ, Институт океанологии РАН)</p>
 </div>
-    <img src="foto/foto3.jpg" style="position: relative;" width="1500" height = "avto">
+<section id="microplastics">
+    <h2>Цикл микропластика</h2>
+    <div class="media-block">
+        <div class="media-img" onclick="openModal(this.querySelector('img').src)">
+            <img src="foto/foto2.jpg" alt="Микропластик в воде">
+        </div>
+        <div class="media-text">
+            <p>Микропластик (<5 мм) проходит через зоопланктон, рыб, тюленей — и попадает в человека. <br><strong>Нажми на фото для увеличения</strong></p>
+        </div>
+    </div>
+</section>
+
+
+<section id="garbage-layer">
+    <h2>Слой мусора в воде</h2>
+    <div class="media-block">
+        <div class="media-img" onclick="openModal(this.querySelector('img').src)">
+            <img src="https://psv4.userapi.com/s/v1/d2/eYzU-eX9Ig-_zZ7oXhqGImOMZabTvPPermVtcWiqVqiyOcfUQJNyBLGFI9Kg-7uirdT4rjOQYsTHLqSz7Yy0wY0OuXneCYZp_kyfJ1GKXZ-jTOXuS2WNiJHzLDUBGXivvRfyp23YphSX/voda.png" alt="Подводный мусорный слой">
+        </div>
+        <div class="media-text">
+            <p>Под поверхностью — взвесь пакетов, нитей и фрагментов. «Пластиковый суп». До 94% мусора находится в толще воды.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="garbage-layer">
+    <h2>Влияние на животных</h2>
+    <div class="media-block">
+        <div class="media-img" onclick="openModal(this.querySelector('img').src)">
+            <img src="https://psv4.userapi.com/s/v1/d2/D0aVnzoLazd-v59J5B2exk9qN9PFh8XmG9_FMT4BpIrje4-rh8AJGxdFRI3vuOhWTZI5EMGC8dQD2Sc1rfp57hzN18l9JSQnjoC0O4yL5L0b7zb5bJ_7mhgW3Dq7IaT9jmyOEeIpdfmX/zhivt.png" alt="Подводный мусорный слой">
+        </div>
+        <div class="media-text">
+            <p>Кольчатая нерпа, белуха, гаги, треска — сотни особей гибнут от сетей, пакетов и микропластика ежегодно.</p>
+        </div>
+    </div>
+</section>
     <h1>Что может сделать человек c загрязнением?</h1>
     <h4>Человек может оказать существенное влияние на снижение уровня загрязнения Белого моря, учитывая, что более 93% антропогенных отходов там составляет пластик, а море подвержено воздействию речного стока и хозяйственной деятельности. 
 Основные действия человека для борьбы с загрязнением:
@@ -143,14 +188,12 @@
 Поддержка экологических мониторингов: Помощь научным экспедициям, изучающим состояние воды и дна (научно-исследовательские суда регулярно исследуют загрязнение в Двинском заливе и других районах).
 Соблюдение правил рыболовства: Предотвращение загрязнения нефтепродуктами от маломерных судов и сохранение прибрежной растительности. 
     </h4>
-    <h2>пляж</h2>
+    <h1>пляж</h1>
 </div>
-<div class="map-wrapper">
+<div id ="plahs"; class="map-wrapper">
     <div class="map-container">
-        <!-- Фоновая карта -->
         <img src="foto/foto4.jfif" alt="пляж">
         
-        <!-- Все сокровища по списку -->
     <img class="treasure-icon" src="https://textur.gas-kvas.com/uploads/posts/2024-10/textur-gas-kvas-com-v70x-p-teksturi-pikselnii-pesok-4.jpg" style="left: 5%; top: 35%; width: 50px;" onclick="das('пластиковая бутылка', 'https://cdn-icons-png.flaticon.com/128/7952/7952175.png', this, event)">
     <img class="treasure-icon" src="https://textur.gas-kvas.com/uploads/posts/2024-10/textur-gas-kvas-com-v70x-p-teksturi-pikselnii-pesok-4.jpg" style="left: 15%; top: 42%; width: 50px;" onclick="das('сеть', 'https://cdn-icons-png.flaticon.com/128/593/593423.png', this, event)">
     <img class="treasure-icon" src="https://textur.gas-kvas.com/uploads/posts/2024-10/textur-gas-kvas-com-v70x-p-teksturi-pikselnii-pesok-4.jpg" style="left: 22%; top: 60%; width: 50px;" onclick="das('правый тапок', 'https://cdn.iconscout.com/icon/premium/png-512-thumb/slipper-icon-svg-download-png-1758207.png?f=webp&w=256', this, event)">
@@ -188,43 +231,49 @@
     <img class="modal-content" id="modalImage">
     <h2 id="modalTitle"></h2>
 </div>
-<div id="museumContainer" style="background-image: url('foto/foto5.jfif'); background-size: cover; margin-left: 30px; margin-right: 30px; padding-left: 20px; padding-right: 20px; border-radius: 30px;">
+
+<div id="museumContainer" style="background-image: url('foto/foto5.jfif'); background-size: cover; padding-left: 20px; padding-right: 20px; border-radius: 30px;">
     <h3 style="color: #ffcc66; text-align: center;">МУЗЕЙ МУСОРА</h3>
     <p style="color: #ffdd99; text-align: center;">Собранные предметы</p>
-    <div id="museumCards" style="display: flex; flex-direction: row; flex-wrap: wrap; overflow-x: auto; gap: 20px; padding: 10px;">
+    <div id="museumCards" style="display: flex; flex-direction: row; flex-wrap: wrap; overflow-x: auto; gap: 20px; justify-content: center;">
     </div>
 </div>
 <div class="sorting-zones">
-    <div class="sorting-zone" style="border: 2px dashed #ffaa44;">
-        <h4 style="color: #ffaa44;">НЕСОРТ.</h4>
-        <div id="drag-source" class="zone-content"></div>
-    </div>
-
-    <div class="sorting-zone" style="border: 2px solid #66cc99;" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h4 style="color: #88ffaa;">ПЛАСТИК</h4>
-        <div id="plastic-bin" class="zone-content"></div>
-    </div>
 
     <div class="sorting-zone" style="border: 2px solid #66cc99;" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h4 style="color: #88ffaa;">СТЕКЛО</h4>
         <div id="glass-bin" class="zone-content"></div>
     </div>
-
     <div class="sorting-zone" style="border: 2px solid #66cc99;" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h4 style="color: #88ffaa;">БУМАГА</h4>
         <div id="paper-bin" class="zone-content"></div>
     </div>
-
-    <div class="sorting-zone" style="border: 2px solid #66cc99;" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h4 style="color: #88ffaa;">РАЗНОЕ</h4>
-        <div id="raznoe-bin" class="zone-content"></div>
+<div class="sorting-zone" style="border: 2px solid #6699cc;" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h4 style="color: #88aaff;">МЕТАЛЛ</h4>
+    <div id="metal-bin" class="zone-content"></div>
+</div>
+<div class="sorting-zone" style="border: 2px solid #cc9966;" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h4 style="color: #ffaa88;">РЕЗИНА</h4>
+    <div id="rubber-bin" class="zone-content"></div>
+    </div>
+    <div class="sorting-zone" style="border: 2px solid #cc9966;" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h4 style="color: #ffaa88;">РАЗНОЕ</h4>
+    <div id="raznoe-bin" class="zone-content"></div>
+    </div>
+        <div class="sorting-zone" style="border: 2px solid #66cc99;" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h4 style="color: #88ffaa;">ПЛАСТИК</h4>
+        <div id="plastic-bin" class="zone-content"></div>
+    </div>
+        <div class="sorting-zone" style="border: 2px dashed #ffaa44;">
+        <h4 style="color: #ffaa44;">НЕСОРТ.</h4>
+        <div id="drag-source" class="zone-content"></div>
     </div>
 </div>
 <script>
     const museumContainer = [
     { name: "Пластиковая бутылка (0,5 л)", story: "Оставлена туристом на берегу в районе мыса Ухт-Наволок. Во время шторма смыта в море.", decompose: "450 лет", img: "https://cdn-icons-png.flaticon.com/128/7952/7952175.png" },
     { name: "Сеть", story: "Брошена или потеряна рыболовным судном в акватории Белого моря в 2021 году. Продолжает ловить рыбу, тюленей и птиц без участия человека.", decompose: "600 лет", img: "https://cdn-icons-png.flaticon.com/128/593/593423.png" },
-    { name: "Правый тапок", story: "Найден волонтёрами на побережье через три месяца после потери левого. Принесло течением из другой бухты", decompose: "50-80 лет", img: "https://cdn.iconscout.com/icon/premium/png-512-thumb/slipper-icon-svg-download-png-1758207.png?f=webp&w=256" },
+    { name: "Правый тапок", story: "--", decompose: "50-80 лет", img: "https://cdn.iconscout.com/icon/premium/png-512-thumb/slipper-icon-svg-download-png-1758207.png?f=webp&w=256" },
     { name: "Стеклянная бутылка", story: "Разбита на пляже в посёлке Умба. Осколки унесены в море. Острые края травмируют ласты нерп.", decompose: "1 000 000+ лет (стекло)", img: "https://cdn-icons-png.flaticon.com/128/7047/7047661.png" },
     { name: "Батарейка", story: "Выброшена в лесополосе вдоль реки Мезень. Тяжёлые металлы мигрировали в грунтовые воды, затем в реку.", decompose: "100 лет (корпус), металлы навсегда", img: "https://cdn-icons-png.flaticon.com/128/2333/2333603.png" },
     { name: "Поплавок", story: "Сорван со снастей во время шторма в районе Соловецких островов. Дрейфует по течению, обрастает водорослями и рачками.", decompose: "400–500 лет", img: "https://cdn-icons-png.flaticon.com/128/1326/1326823.png" },
@@ -254,9 +303,9 @@
     { name: "Строительный уголок", story: "Смыт со стройки в Архангельске во время ливня. Попал в Двину. Острые края ранят рыб.", decompose: "400–500 лет", img: "https://cdn-icons-png.flaticon.com/128/2318/2318777.png" },
     { name: "Сани-волокуши", story: "Оставленные рыбаками-любителямина зиммней рыбалке во льдах. унесены в открытое море", decompose: "100–200 лет", img: "https://cdn-icons-png.flaticon.com/128/6013/6013127.png" },
     { name: "Пенный поплавок", story: "Оборвался от сетей браконьеров в губе. Распадается на пенопластовые шарики.", decompose: "→ микропластик(не разлагается)", img: "https://cdn-icons-png.flaticon.com/128/1326/1326823.png" },
-    { name: "Канистра", story: "Оставлена рыбаками на берегу губы Чупа. Во время прилива опрокинута в воду. Остатки масла создают плёнку на поверхности", decompose: "400–500 лет", img: "https://cdn-icons-png.flaticon.com/128/18017/18017115.png" },
+    { name: "Канистра", story: "--", decompose: "400–500 лет", img: "https://cdn-icons-png.flaticon.com/128/18017/18017115.png" },
     { name: "Батарейка АА", story: "Выброшена в лесополосе вдоль реки Мезень. Тяжёлые металлы мигрировали в грунтовые воды, затем в реку", decompose: "100 лет (корпус), токсичные металлы остаются навсегда", img: "https://cdn-icons-png.flaticon.com/128/2333/2333603.png" },
-    { name: "Лесочная катушка", story: "Оставлена браконьерами на берегу в районе устья реки Кемь. Острые лески режут ласты тюленей", decompose: "400–500 лет", img: "https://cdn-icons-png.flaticon.com/128/2979/2979705.png" }
+    { name: "Рыболовный ящик", story: "--", decompose: "400 лет", img: "https://cdn-icons-png.flaticon.com/128/2979/2979705.png" }
 ];
     let foundTreasures = [];
     let particleCount = 0;
@@ -351,8 +400,8 @@ function tick() {
     }
 }
 setInterval(tick, 2000);
-function addToMuseum(name) 
-{   
+    function addToMuseum(name) 
+    {   
     let container = document.getElementById('museumCards');
     if (!container) 
     {
@@ -529,9 +578,11 @@ function drop(event) {
     if (binId === 'plastic-bin') binType = 'plastic';
     else if (binId === 'glass-bin') binType = 'glass';
     else if (binId === 'paper-bin') binType = 'paper';
+    else if (binId === 'raznoe-bin') binType = 'raznoe';
+    else if (binId === 'metal-bin') binType = 'metal';
     else if (binId === 'drag-source') binType = 'source';
+    else if (binId === 'rubber-bin') binType = 'rubber';
     else return;
-    
     const itemName = draggedElement.getAttribute('data-name');
     
     if (binType !== 'source' && isValidForBin(itemName, binType)) {
@@ -540,8 +591,6 @@ function drop(event) {
         draggedElement.style.opacity = '0.7';
         targetBin.querySelector('.zone-content').appendChild(draggedElement);
         showMessage(`✅ это отправлен в ${getBinName(binType)}!`, '#88ffaa');
-    } else if (binType === 'source') {
-        showMessage(`📦 это уже в несортированном`, '#ffaa44');
     } else {
         showMessage(`❌ это нельзя сюда!`, '#ff8888');
     }
@@ -550,22 +599,68 @@ function drop(event) {
 function isValidForBin(itemName, binType) {
     const lowerName = itemName.toLowerCase();
     
-    const plasticItems = ['бутылка', 'пакет', 'крышка', 'поплавок', 'стаканчик', 'ведро'];
-    const glassItems = ['стеклянная', 'бутылка стеклянная', 'лампа'];
-    const paperItems = ['пакет', 'салфетки', 'коробка', 'картон'];
-    const raznoeItems = ['батарейка', 'шприц', 'лампа', 'зажигалка', 'ловушка', 'крабовая'];
-
-
-
-    
     if (binType === 'plastic') return plasticItems.some(i => lowerName.includes(i));
     if (binType === 'glass') return glassItems.some(i => lowerName.includes(i));
     if (binType === 'paper') return paperItems.some(i => lowerName.includes(i));
-    if (binType === 'organic') return organicItems.some(i => lowerName.includes(i));
     if (binType === 'raznoe') return raznoeItems.some(i => lowerName.includes(i));
+    if (binType === 'metal') return metalItems.some(i => lowerName.includes(i));
+    if (binType === 'rubber') return rubberItems.some(i => lowerName.includes(i));
+    
     return false;
 }
+const plasticItems = [
+    'пластиковая бутылка', 
+    'сеть', 
+    'поплавок', 
+    'пластиковая крышка', 
+    'пакет-майка', 
+    'стаканчик', 
+    'игрушка', 
+    'баллончик', 
+    'пакет фасовка', 
+    'надувной круг', 
+    'строительный уголок', 
+    'канистра',
+    'рыболовный ящик',
+    'пенопласт'
+];
 
+const glassItems = [
+    'стеклянная бутылка', 
+];
+const paperItems = [
+    'стаканчик', 
+    'салфетки', 
+    'пенопласт',
+    'маска',  
+    'окурок'
+];
+const metalItems = [
+    'стальной трос', 
+    'бочка', 
+    'аэрозольный баллончик',
+    'CD-диск',
+    'батарейка',
+    'шприц', 
+    'лампа', 
+    'ведро из под краски', 
+    'зажигалка'
+];
+
+const rubberItems = [
+    'резиновая шина', 
+    'правый тапок', 
+    'шарик', 
+    'левый тапок'
+];
+
+const raznoeItems = [
+    'сани-волокуши', 
+    'очки', 
+    'строительный уголок',
+    'крабовая ловушка',
+    'лампа'
+];
 function getBinName(binType) {
     const names = {
         'plastic': 'ПЛАСТИК',
@@ -579,6 +674,7 @@ function addDragItem(itemName, itemImg) {
     const source = document.getElementById('drag-source');
     if (!source) return;
 
+    // Проверка, чтобы не добавлять дубликаты
     const existing = source.querySelector(`[data-name="${itemName}"]`);
     if (existing) return;
 
